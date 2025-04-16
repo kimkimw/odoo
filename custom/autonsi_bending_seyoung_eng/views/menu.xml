@@ -12,7 +12,7 @@
                           action="outsourcing_order_action"/>
             </menuitem>
 
-            <menuitem id="menu_kpi" name="KPI" sequence="2">
+			<menuitem id="menu_kpi" name="KPI" sequence="2">
                 <menuitem id="menu_kpi_by_dia" name="KPI By Dia" sequence="1" action="outsourcing_order_action"/>
                 <menuitem id="menu_kpi_by_outsourcing_company" name="KPI By Outsourcing Company" sequence="2"
                           action="outsourcing_order_action"/>

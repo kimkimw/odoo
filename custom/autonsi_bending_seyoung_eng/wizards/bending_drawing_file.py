@@ -1,3 +1,4 @@
+from odoo import fields, models, api
 from odoo import fields, models, api, _
 import requests
 import base64
@@ -18,12 +19,13 @@ class BendingDrawingFileWizard(models.TransientModel):
     outsourcing_company_id = fields.Many2one('res.partner', string='Outsourcing Company',
                                              related="mmo_id.outsourcing_company_id", store=True)
 
-    right_panel_html = fields.Html("Right Panel", compute="_compute_right_panel_html", sanitize=False, )
+    right_panel_html = fields.Html("Right Panel", compute="_compute_right_panel_html", sanitize=False,)
 
     por_drawing_file_ids = fields.Many2many("sale.split.pdf.page", string="POR Files", related="mmo_id.pdf_file_ids",
                                             readonly=False,
                                             domain="[('file_id', '=', selection_file), ('is_invisible_map_por', '=', False)]")
     view_type = fields.Selection([('pcs', 'PCS'), ('por', 'POR')], string="View Type", default="pcs")
+
 
     @api.depends('line_ids')
     def _compute_total_piece(self):
@@ -38,7 +40,7 @@ class BendingDrawingFileWizard(models.TransientModel):
             record.total_image = len(page_ids)
 
     def action_batch_images(self):
-        # print("action_batch_images")
+        #print("action_batch_images")
 
         docs_assigned = []
         page_ids = self.selection_file.page_ids.filtered(lambda x: not x.is_invisible_map_pcs)
@@ -52,6 +54,7 @@ class BendingDrawingFileWizard(models.TransientModel):
                         docs_assigned.append(doc)
                         break
 
+
     def action_reset_images(self):
         for line in self.line_ids:
             line.pdf_file_ids = [(5, 0, 0)]
@@ -60,6 +63,7 @@ class BendingDrawingFileWizard(models.TransientModel):
         if 'selection_file' in vals:
             self.mmo_id.edit_drawing_selected_file = vals['selection_file']
         return super(BendingDrawingFileWizard, self).write(vals)
+
 
     @api.depends('selection_file')
     def _compute_right_panel_html(self):
@@ -89,6 +93,8 @@ class BendingDrawingFileWizard(models.TransientModel):
 
         except requests.RequestException as e:
             raise ValueError(f"Lỗi khi tải PDF: {e}")
+
+
 
 
 class PageBendingLineWizard(models.TransientModel):
