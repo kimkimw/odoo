@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="outsourcing_order_tree" model="ir.ui.view">
+            <field name="name">outsourcing_order_tree</field>
+            <field name="model">mt.mmo</field>
+            <field name="arch" type="xml">
+                <tree create="0" editable="top">
+                    <header>
+                        <button name="%(action_mmo_create_wizard)d" type="action" string="Create" class="btn-primary"
+                                display="always"/>
+                        <button name="download_excel_file" type="object" string="Print Excel" class="btn"
+                                display="always"/>
+                        <button name="download_drawing_file" type="object" string="Print Drawing" class="btn"
+                                display="always"/>
+                    </header>
+                    <field name="type" string="Type"/>
+                    <field name="create_date" string="Created On"/>
+                    <field name="name" string="MMO Title" readonly="status != 'order'"/>
+                    <field name="outsourcing_company_id" string='Outsourcing Company'/>
+                    <field name="pcs_qty_status" string='Data Not Yet PCS Qty'/>
+                    <field name="pcs_qty" string='Total PCS Qty'/>
+                    <field name="original_drawing_status" string='Original Drawing'/>
+                    <button name="action_mmo_print_drawing" type="object" string="View" class="btn-primary"/>
+                    <field name="pcs_drawing_status" string="PCS Drawing"/>
+                    <button name="view_pcs_drawing" type="object" string="View" class="btn-primary"/>
+                    <field name="cutting_list" filename="cutting_list_name" widget="binary"/>
+                    <field name="cutting_list_name" invisible="1"/>
+                    <button name="upload_cutting_list" type="object" string="Upload" class="btn-primary"/>
+                    <field name="data_input_complete_date" string="Data Input Complete Date"/>
+                    <button name="open_drawing_file" type="object" string="B/D" class="btn-primary"/>
+                    <field name="status" widget="badge"
+                           decoration-bf="status == 'order'"
+                           decoration-primary="status == 'paid'"
+                           decoration-success="status == 'shipped'"
+                    />
+                    <field name="remark" string="Remark"/>
+                    <field name="create_uid" string="Created By" options="{'no_open': True}"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_mmo_detail_tree">
+            <field name="name">view_mmo_detail_tree</field>
+            <field name="model">sale.order.line</field>
+            <field name="arch" type="xml">
+                <tree string="Piece MPS" create="false" edit="false" delete="false">
+                    <field name="mmo_id" readonly="1" string="MMO Title"/>
+                    <field name="mt_production_id" string="Order No" readonly="1"/>
+                    <field name="ship_no" readonly="1" width="100px" options="{'no_open': True}"/>
+                    <field name="por_no" readonly="1" width="100px" options="{'no_open': True}"/>
+                    <field name="block" readonly="1"/>
+                    <field name="line_no" readonly="1"/>
+                    <field name="name" string="PCS No" width="180px" class="text-danger"/>
+                    <field name="drawing_connection" readonly="1"/>
+                    <button string="View" type="object" name="action_open_view_drawing" class="btn-primary"
+                            invisible="not drawing_connection"
+                    />
+                    <!--					<field name="treatment_mnd"/>-->
+                    <field name="product_uom" readonly="1"/>
+                    <field name="dia"/>
+                    <field name="pipe_kind_desc"/>
+                    <field name="bending_qty"/>
+                    <field name="bending" decoration-primary="bending == 'Y'" decoration-danger="bending == 'N'"/>
+                    <field name="state"/>
+                    <field name="remark"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+        <record id="outsourcing_order_action" model="ir.actions.act_window">
+            <field name="name">Outsourcing Order</field>
+            <field name="res_model">mt.mmo</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="outsourcing_order_tree"/>
+            <field name="context">{'treeRef': 'view_mmo_detail_tree',
+                                   'many2one_field': 'mmo_id'}</field>
+            <!--			<field name="search_view_id" ref="mmo_sidebar"/>-->
+            <!--			<field name="view_ids"-->
+            <!--			       eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('view_mmo_tree')}), (0, 0, {'view_mode': 'form', 'view_id': ref('view_mmo_form')})]"/>-->
+        </record>
+
+    </data>
+</odoo>

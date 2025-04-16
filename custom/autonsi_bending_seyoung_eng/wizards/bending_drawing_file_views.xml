@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="documents_page_bending_form_view" model="ir.ui.view">
+            <field name="name">Bending Drawing File</field>
+            <field name="model">bending.drawing.file.wizard</field>
+            <field name="arch" type="xml">
+                <form class="mypdflayout o_form_full">
+                    <header>
+                        <button string="Batch Images" type="object" name="action_batch_images" class="btn btn-primary" invisible="view_type == 'por'"/>
+                        <button string="Reset" type="object" name="action_reset_images" class="btn btn-primary" invisible="view_type == 'por'"/>
+                    </header>
+                    <sheet>
+                        <group col='3'>
+                            <group>
+                                <field name="mmo_id" readonly="1" invisible="1"/>
+                                <field name="selection_file" string="Select a file"
+                                       options="{'no_create': True, 'no_open': True}"/>
+                            </group>
+                            <group >
+                                <field name="total_piece" readonly="1" force_save="1" invisible="view_type == 'por'"/>
+
+                            </group>
+                            <group>
+                                <field name="total_image" readonly="1" force_save="1"/>
+                            </group>
+
+                        </group>
+                        <group>
+                            <field name="view_type" invisible="1"/>
+                        </group>
+
+
+                        <div class="d-flex">
+                            <div class="col-6">
+                                <field name="line_ids"
+                                       options="{'no_open': True}"
+                                       invisible="view_type == 'por'"
+                                       context="{'show_list_number': True}"
+                                >
+                                    <tree create="0" delete="0" editable="bottom"
+                                          class="documents_page_edit_form_view">
+                                        <field name="selection_file" column_invisible="True"/>
+                                        <field name="outsourcing_company_id" readonly="1"/>
+                                        <field name="product_id"/>
+                                        <field name="img_qty"/>
+                                        <field name="pdf_file_ids"
+                                               readonly="not selection_file"
+                                               options="{'no_open': True,'no_create': True}"
+                                               context="{'order_display': 'id asc' }"
+                                               widget="many2many_tags"
+
+                                        />
+                                        <button name="action_bending_data" type="object" string="B/D" class="btn-primary"/>
+                                        <field name="mmo_id" column_invisible="1"/>
+                                    </tree>
+                                </field>
+                                <field name="por_drawing_file_ids" invisible="view_type == 'pcs'"></field>
+                            </div>
+                            <div class="col-6">
+                                <field name="right_panel_html" readonly="1" force_save="1"
+                                       widget="list_pdf_html_widget"
+                                       />
+                            </div>
+
+                        </div>
+                    </sheet>
+
+
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

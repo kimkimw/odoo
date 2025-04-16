@@ -1,0 +1,17 @@
+<odoo>
+  <data>
+		<menuitem id="menu_bending_root" name="Bending">
+			<menuitem id="menu_order_management" name="Order Management" sequence="1">
+                <menuitem id="menu_outsourcing_order" name="Outsourcing Order" sequence="1" action="outsourcing_order_action"/>
+                <menuitem id="menu_receiving_and_shipping" name="Receiving &amp; Shipping" sequence="2" action="outsourcing_order_action"/>
+                <menuitem id="menu_outsourcing_cost_list" name="Outsourcing Cost List" sequence="3" action="outsourcing_order_action"/>
+                <menuitem id="menu_in_house_cost_list" name="In-House Cost List" sequence="4" action="outsourcing_order_action"/>
+			</menuitem>
+
+			<menuitem id="menu_kpi" name="KPI" sequence="2">
+                <menuitem id="menu_kpi_by_dia" name="KPI By Dia" sequence="1" action="outsourcing_order_action"/>
+                <menuitem id="menu_kpi_by_outsourcing_company" name="KPI By Outsourcing Company" sequence="2" action="outsourcing_order_action"/>
+			</menuitem>
+		</menuitem>
+  </data>
+</odoo>
