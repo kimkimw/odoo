@@ -21,4 +21,13 @@
 
         'views/menu.xml',
     ],
+    # 'assets': {
+	# 	'web.assets_backend': [
+	# 		'autonsi_bending_seyoung_eng/static/src/js/*.js',
+	# 		'autonsi_bending_seyoung_eng/static/src/css/*.css'
+	# 	],
+	# 	'web.assets_qweb': {
+	# 		'autonsi_bending_seyoung/static/src/xml/*.xml',
+	# 	},
+	# }
 }

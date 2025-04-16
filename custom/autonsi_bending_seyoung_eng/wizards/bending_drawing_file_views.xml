@@ -8,8 +8,10 @@
             <field name="arch" type="xml">
                 <form class="mypdflayout o_form_full">
                     <header>
-                        <button string="Batch Images" type="object" name="action_batch_images" class="btn btn-primary" invisible="view_type == 'por'"/>
-                        <button string="Reset" type="object" name="action_reset_images" class="btn btn-primary" invisible="view_type == 'por'"/>
+                        <button string="Batch Images" type="object" name="action_batch_images" class="btn btn-primary"
+                                invisible="view_type == 'por'"/>
+                        <button string="Reset" type="object" name="action_reset_images" class="btn btn-primary"
+                                invisible="view_type == 'por'"/>
                     </header>
                     <sheet>
                         <group col='3'>
@@ -18,7 +20,7 @@
                                 <field name="selection_file" string="Select a file"
                                        options="{'no_create': True, 'no_open': True}"/>
                             </group>
-                            <group >
+                            <group>
                                 <field name="total_piece" readonly="1" force_save="1" invisible="view_type == 'por'"/>
 
                             </group>
@@ -52,7 +54,8 @@
                                                widget="many2many_tags"
 
                                         />
-                                        <button name="action_bending_data" type="object" string="B/D" class="btn-primary"/>
+                                        <button name="action_bending_data" type="object" string="B/D"
+                                                class="btn-primary"/>
                                         <field name="mmo_id" column_invisible="1"/>
                                     </tree>
                                 </field>
@@ -61,7 +64,7 @@
                             <div class="col-6">
                                 <field name="right_panel_html" readonly="1" force_save="1"
                                        widget="list_pdf_html_widget"
-                                       />
+                                />
                             </div>
 
                         </div>

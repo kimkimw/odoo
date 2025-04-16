@@ -56,7 +56,6 @@
                     <button string="View" type="object" name="action_open_view_drawing" class="btn-primary"
                             invisible="not drawing_connection"
                     />
-                    <!--					<field name="treatment_mnd"/>-->
                     <field name="product_uom" readonly="1"/>
                     <field name="dia"/>
                     <field name="pipe_kind_desc"/>
@@ -67,7 +66,6 @@
                 </tree>
             </field>
         </record>
-
 
 
         <record id="outsourcing_order_action" model="ir.actions.act_window">

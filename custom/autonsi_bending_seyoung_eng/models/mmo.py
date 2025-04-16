@@ -28,9 +28,8 @@ class MMO(models.Model):
         change_default=True, ondelete='restrict', index='btree_not_null',
         domain="[('sale_ok', '=', True)]")
 
-    mmo_line_ids = fields.One2many('mt.mmo.line','mmo_id', string='MMO Line')
+    mmo_line_ids = fields.One2many('mt.mmo.line', 'mmo_id', string='MMO Line')
     img_qty = fields.Integer("Image Qty", default=1)
-
 
     def create_mmo(self):
         pass
@@ -68,19 +67,18 @@ class MMO(models.Model):
     def open_drawing_file(self):
         self.ensure_one()
         bending_data_id = self.env["bending.drawing.file.wizard"].search([("mmo_id", "=", self.id)])
-        selected_file = self.env["sale.split.pdf"].search([("mmo_id", "=", self.id)])
 
         if not bending_data_id or bending_data_id.mmo_id.id != self.id:
-
             data = self.env["bending.drawing.file.wizard"].create({
                 "mmo_id": self.id,
-                "selection_file": selected_file.id,
+                "selection_file": self.split_pdf_ids.id,
                 # "line_ids": line_ids,
                 "view_type": self._context.get("view_type", "pcs"),
                 "name": "Edit Drawing File" if self._context.get("view_type") == "pcs" else "Edit POR File",
             })
+
             line_ids = []
-            for i in range(selected_file.count_pages):
+            for i in range(self.split_pdf_ids.count_pages):
                 line = self.env["bending.drawing.file.line.wizard"].create({
                     "mmo_id": data.mmo_id.id,
                     "outsourcing_company_id": data.outsourcing_company_id.id,
@@ -100,9 +98,9 @@ class MMO(models.Model):
             "res_model": "bending.drawing.file.wizard",
             "view_mode": "form",
             "target": "current",
-            "context": {
-                "default_order_id": self.id,
-            },
+            # "context": {
+            #     "default_order_id": self.id,
+            # },
             "res_id": data.id,
 
         }

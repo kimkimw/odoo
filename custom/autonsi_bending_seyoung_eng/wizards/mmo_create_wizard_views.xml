@@ -18,8 +18,54 @@
                             type="object" class="btn-primary"/>
                     <button string="Discard" special="cancel" class="btn-secondary"/>
                 </footer>
-            </form></field>
+            </form>
+        </field>
     </record>
+
+    <record id="piece_list_bending_form" model="ir.ui.view">
+        <field name="name">Bending Data</field>
+        <field name="model">bending.drawing.file.line.wizard</field>
+        <field name="arch" type="xml">
+            <form class="bending_form" create="false" delete="false">
+                <style>
+                    .bending_form {
+                    <!--					padding-top: 0 !important;-->
+                    <!--					padding-right: 0 !important;-->
+                    <!--					padding-bottom: 0 !important;-->
+                    padding: 0 !important;
+                    }
+                    .bending_group {
+                    margin: 0 !important;
+                    }
+                    .o_control_panel {
+                    padding: 0;
+                    }
+                    .o_cp_bottom {
+                    display: none !important;
+                    }
+                    .o_form_statusbar {
+                    margin: 0 !important;
+                    }
+                </style>
+                <header>
+                    <field name="bending_status" widget="statusbar" statusbar_visible="draft,done"/>
+
+                    <button string="Bending Setting Data" class="btn-warning" name="open_bending_setting"
+                            type="object"/>
+                    <button string="Redraw" class="btn-primary" name="redraw_bending_data" type="object"/>
+                    <button string="Complete" class="btn-primary" name="confirm_bending_data" type="object"/>
+                    <button string="Refresh" class="btn-primary" name="refresh" type="object" invisible="0"/>
+                    <button string="Next Page" class="btn-primary" name="next_page" type="object" invisible="0"/>
+                    <button string="Close" class="btn-secondary close-bending" name="close_bending_form" type="object"/>
+                    <button string="Edit" class="btn-secondary close-bending" name="edit_page" type="object"/>
+                </header>
+                <group class="bending_group">
+                    <div class="o_bending_data"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
 
     <record id="action_mmo_create_wizard" model="ir.actions.act_window">
         <field name="name">Create MMO</field>
