@@ -1,0 +1,4 @@
+<template xml:space="preserve" id="bending_data_template" name="Bending Data Template">
+    <div t-name="autonsi_bending_seyoung_eng.bending_data_template" id="bending_data_layout" style="width: 100%" owl="1"></div>
+</template>
+

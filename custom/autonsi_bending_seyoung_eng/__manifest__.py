@@ -10,8 +10,17 @@
     "category": "Extra Rights",
     "version": "1.0",
     "license": "AGPL-3",
-    'depends': ['base', 'autonsi_mms_seyoung_eng','autonsi_sale_seyoung_eng'],
+    'depends': ['base', 'autonsi_mms_seyoung_eng', 'autonsi_sale_seyoung_eng'],
+    "assets": {
+        "web.assets_backend": [
+            'autonsi_bending_seyoung_eng/static/src/xml/bending_data_template.xml',
+            'autonsi_bending_seyoung_eng/static/src/js/bending_data.js',
+            'autonsi_bending_seyoung_eng/static/src/js/*.js',
+            'autonsi_bending_seyoung_eng/static/src/css/*.css',
 
+        ],
+
+    },
     # always loaded
     'data': [
         'security/ir.model.access.csv',
@@ -21,13 +30,5 @@
 
         'views/menu.xml',
     ],
-    # 'assets': {
-	# 	'web.assets_backend': [
-	# 		'autonsi_bending_seyoung_eng/static/src/js/*.js',
-	# 		'autonsi_bending_seyoung_eng/static/src/css/*.css'
-	# 	],
-	# 	'web.assets_qweb': {
-	# 		'autonsi_bending_seyoung/static/src/xml/*.xml',
-	# 	},
-	# }
+
 }

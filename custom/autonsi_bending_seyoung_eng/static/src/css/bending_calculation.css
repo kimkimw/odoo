@@ -1,0 +1,22 @@
+#bending_data_layout .title_row {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+#bending_data_layout [data-dhx-id="txtTitle"] {
+    font-weight: bold;
+    font-size: medium;
+}
+
+#bending_data_layout .dhx_button[data-dhx-id="btnBendingSetting"] {
+    background-color: #FDBF00;
+    color: black;
+}
+
+#bending_data_layout .form_line_row {
+    margin-bottom: 10px;
+}
+
+#bending_data_layout .form_info {
+    margin-bottom: 20px;
+}

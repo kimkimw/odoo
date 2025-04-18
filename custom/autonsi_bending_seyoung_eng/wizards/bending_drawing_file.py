@@ -108,6 +108,8 @@ class PageBendingLineWizard(models.TransientModel):
     )
     selection_file = fields.Many2one('sale.split.pdf', string="Selection Files", related="wizard_id.selection_file")
     mmo_id = fields.Many2one("mt.mmo", string="MMO")
+    ship_no = fields.Char()
+    por_no = fields.Char()
     product_id = fields.Many2one("product.product", string="Piece", related="mmo_id.product_id")
     pdf_file_ids = fields.Many2many("sale.split.pdf.page", string="Drawings", related="mmo_id.pdf_file_ids",
                                     readonly=False,

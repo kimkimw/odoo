@@ -1,0 +1,192 @@
+:root {
+    --border-color: black;
+    --can-edit-color: #FBEECA;
+}
+
+#bending_data_layout * {
+    font-size: small;
+}
+
+#bending_data_layout .dhx_form_left .dhx_form-group--container {
+    margin-bottom: 0 !important;
+}
+
+#bending_data_layout .dhx_form button {
+    margin-left: 5px !important;
+    text-transform: none;
+    white-space: normal !important;
+    border: 1px solid;
+    border-radius: 5px;
+    max-width: 120px;
+}
+
+#bending_data_layout .dhx_form button:hover {
+    filter: brightness(120%);
+}
+
+#bending_data_layout .dhx_form .dhx_label {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+
+/* ------------- Right Layout ------------- */
+#bending_data_layout .dhx_form_right .dhx_form-group {
+    margin-bottom: 0 !important;
+}
+
+#bending_data_layout .bending_data_row select {
+    padding: 0 0 0 5px;
+    background-color: var(--can-edit-color);
+    text-align: center;
+}
+
+#bending_data_layout .bending_data_row .dhx_input:not(.dhx_input--textinput) {
+    background-color: var(--can-edit-color);
+}
+
+#bending_data_layout .form_right_row {
+    margin-bottom: 3px;
+}
+
+#bending_data_layout .dhx_form_right button {
+    border: none;
+    background-color: #943256;
+}
+
+#bending_data_layout .dhx_form_right button:disabled {
+    border: none;
+    background-color: #b5b5b5;
+}
+
+
+#bending_data_layout .dhx_form_right textarea {
+    font-size: larger;
+}
+
+/*#bending_data_layout .dhx_form_right button[data-dhx-id^="btnClear"] {*/
+/*    width: 105px;*/
+/*}*/
+
+#bending_data_layout .origin_info .dhx_form-element {
+    border-top: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    background-color: #DDEAF5;
+}
+
+#bending_data_layout .origin_info .dhx_form-element .dhx_input__wrapper {
+    border-left: 1px solid var(--border-color);
+    background-color: white;
+}
+
+#bending_data_layout .origin_info .dhx_form-element .dhx_label {
+    margin-top: 0;
+}
+
+#bending_data_layout .origin_info .dhx_form-element .dhx_input__wrapper input {
+    text-align: center;
+    padding: 0;
+}
+
+#bending_data_layout .origin_info .dhx_form-element.last_cell {
+    border-right: 1px solid var(--border-color);
+}
+
+#bending_data_layout .origin_info:last-child {
+    border-bottom: 1px solid var(--border-color);
+}
+
+#bending_data_layout [data-dhx-id="txtOriginal"] {
+    color: #BF0000;
+    font-weight: bold;
+}
+
+#bending_data_layout [data-dhx-id="txtOriginalReset"] {
+    font-weight: bold;
+}
+
+#bending_data_layout [data-dhx-id="txtNewData"] {
+    color: #6F309F;
+    font-weight: bold;
+}
+
+#bending_data_layout .dhx_form-element[data-cell-id="selDia"] .dhx_input__wrapper {
+    width: 80px;
+    margin-right: 10px;
+}
+
+#bending_data_layout .origin_info .dhx_form-element[data-cell-id^="ckFront"] {
+    background-color: white;
+    padding-left: 10px;
+}
+
+#bending_data_layout .origin_info .dhx_form-element[data-cell-id^="ckBack"] {
+    border-left: none;
+    background-color: white;
+}
+
+#bending_data_layout .origin_info .dhx_checkbox_el .dhx_checkbox__visual-input {
+    min-width: 15px;
+    max-width: 15px;
+    min-height: 15px;
+    max-height: 15px;
+}
+
+#bending_data_layout .reset_checkbox {
+    display: flex;
+    align-items: center;
+}
+
+#bending_data_layout .original_value_header {
+    background-color: #FD7B7F;
+}
+
+#bending_data_layout .auto_value_header {
+    background-color: #CFCDCD;
+}
+
+#bending_data_layout .original_value_cell {
+    background-color: #FDF0CB;
+}
+
+#bending_data_layout .auto_value_cell {
+    background-color: #9CC2E5;
+}
+
+#bending_data_layout .grid_original .dhx_grid-header-cell-text_content {
+    font-size: 0.9em;
+}
+
+.grid_original .dhx_grid-content {
+    border: none;
+}
+
+#bending_data_layout .dhx_grid-header-cell-text {
+    line-height: 1.1;
+}
+
+#bending_data_layout .dhx_grid-header-cell:first-child,
+#bending_data_layout .dhx_grid-cell:first-child {
+    border-left: var(--dhx-border);
+}
+
+#bending_data_layout .dhx_grid-header-cell:last-child,
+#bending_data_layout .dhx_grid-cell:last-child {
+    border-right: var(--dhx-border);
+}
+
+#bending_data_layout .dhx_header-row:first-child .dhx_grid-footer-cell, .dhx_header-row:first-child .dhx_grid-header-cell {
+    border-top: var(--dhx-border);
+}
+
+#bending_data_layout .dhx_form-group--disabled {
+    opacity: 0.9 !important;
+}
+
+#bending_data_layout .dhx_checkbox .dhx_text {
+    opacity: 0.9 !important;
+}
+
+#bending_data_layout .dhx_grid-header-cell-text_content {
+    text-wrap: wrap !important;
+}

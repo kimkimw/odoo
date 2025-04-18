@@ -2,7 +2,7 @@ from odoo import models, fields, api
 from odoo.exceptions import UserError
 
 
-class MMOCreateWizard(models.TransientModel):
+class MMOCreateWizard(models.Model):
     _name = 'mmo.create.wizard'
 
     type = fields.Selection([

@@ -1,0 +1,16 @@
+.bending_form button {
+    box-shadow: none;
+    /*border: 1px solid;*/
+}
+
+.bending_form button[name="copy_pro"] {
+    background-color: #002060 !important;
+    color: white !important;
+    /*border-color: #002060 !important;*/
+}
+
+.bending_form button[name="copy_piece"] {
+    background-color: #002060 !important;
+    color: white !important;
+    /*border-color: #002060 !important;*/
+}

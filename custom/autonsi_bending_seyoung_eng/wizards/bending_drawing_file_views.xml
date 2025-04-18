@@ -45,7 +45,9 @@
                                           class="documents_page_edit_form_view">
                                         <field name="selection_file" column_invisible="True"/>
                                         <field name="outsourcing_company_id" readonly="1"/>
-                                        <field name="product_id"/>
+                                        <field name="ship_no" string="Ship No" readonly="1"/>
+                                        <field name="por_no" string="POR No" readonly="1"/>
+                                        <field name="product_id" string="PCS No"/>
                                         <field name="img_qty"/>
                                         <field name="pdf_file_ids"
                                                readonly="not selection_file"
@@ -55,7 +57,7 @@
 
                                         />
                                         <button name="action_bending_data" type="object" string="B/D"
-                                                class="btn-primary"/>
+                                                class="btn-primary" invisible="not pdf_file_ids"/>
                                         <field name="mmo_id" column_invisible="1"/>
                                     </tree>
                                 </field>
