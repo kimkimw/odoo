@@ -1,4 +1,21 @@
-<template xml:space="preserve" id="bending_data_template" name="Bending Data Template">
-    <div t-name="autonsi_bending_seyoung_eng.bending_data_template" id="bending_data_layout" style="width: 100%" owl="1"></div>
-</template>
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="bending_data_template">
+        <div class="o_form_view o_form_editable">
+            <div class="o_horizontal_layout d-flex align-items-end gap-10 bg-white" style="gap:50px; padding:12px">
+                <!-- Buttons -->
+                <div class="d-flex gap-3">
+                    <button class="btn btn-warning" t-on-click="onBendingSettingData">Bending Setting Data</button>
+                    <button class="btn btn-primary" t-on-click="onRedraw">Redraw</button>
+                    <button class="btn btn-primary" t-on-click="onComplete">Complete</button>
+                    <button class="btn btn-primary" t-on-click="onRefresh">Refresh</button>
+                    <button class="btn btn-primary" t-on-click="onNextPage">Next Page</button>
+                    <button class="btn btn-primary" t-on-click="onClose">Close</button>
+                    <button class="btn btn-purple" t-on-click="onEdit">Edit</button>
+                </div>
+            </div>
 
+            <div id="bending_data_layout" class="mt-2" style="width: 100%; height: calc(100vh - 135px)"/>
+        </div>
+    </t>
+</templates>

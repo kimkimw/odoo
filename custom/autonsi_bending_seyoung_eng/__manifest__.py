@@ -2,8 +2,7 @@
 
 {
     "name": "Auto & S.I Bending Seyoung ENG",
-    "description": """
-        Auto & S.I Custom module""",
+    "description": """Auto & S.I Custom module""",
     "author": "Auto & S.I",
     "maintainer": "",
     "website": "https://www.autonsi.com/",
@@ -13,11 +12,12 @@
     'depends': ['base', 'autonsi_mms_seyoung_eng', 'autonsi_sale_seyoung_eng'],
     "assets": {
         "web.assets_backend": [
-            'autonsi_bending_seyoung_eng/static/src/xml/bending_data_template.xml',
+            'autonsi_bending_seyoung_eng/static/src/css/*.css',
+            'autonsi_bending_seyoung_eng/static/src/js/bending_functions.js',
             'autonsi_bending_seyoung_eng/static/src/js/bending_data.js',
+            'autonsi_bending_seyoung_eng/static/src/xml/bending_data_template.xml',
             'autonsi_bending_seyoung_eng/static/src/js/*.js',
             'autonsi_bending_seyoung_eng/static/src/css/*.css',
-
         ],
 
     },

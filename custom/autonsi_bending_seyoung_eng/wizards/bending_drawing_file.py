@@ -6,7 +6,7 @@ import base64
 from odoo.exceptions import ValidationError
 
 
-class BendingDrawingFileWizard(models.TransientModel):
+class BendingDrawingFileWizard(models.Model):
     _name = 'bending.drawing.file.wizard'
     _description = 'bending Drawing File'
 
@@ -97,7 +97,7 @@ class BendingDrawingFileWizard(models.TransientModel):
 
 
 
-class PageBendingLineWizard(models.TransientModel):
+class PageBendingLineWizard(models.Model):
     _name = "bending.drawing.file.line.wizard"
 
     wizard_id = fields.Many2one(
@@ -122,19 +122,12 @@ class PageBendingLineWizard(models.TransientModel):
     bending_status = fields.Selection([('draft', 'Draft'), ('done', 'Done')], string="Bending Status")
 
     def action_bending_data(self):
-        view_id = self.env.ref('autonsi_bending_seyoung_eng.piece_list_bending_form').id
         action = {
             "name": _("Bending Data"),
-            "display_name": _("Bending Data"),
-            "type": "ir.actions.act_window",
-            "res_model": self._name,
-            "views": [[view_id, "form"]],
-            "res_id": self.id,
+            "type": "ir.actions.client",
+            # "res_model": self._name,
+            "tag": "bending_data_client_action",
             "target": "current",
-            "context": {'bending_data': True,
-                        # 'current_cutting_piece': self.id,
-                        # 'main_cutting_piece': self.main_cutting_piece.id,
-                        }
         }
         return action
 
